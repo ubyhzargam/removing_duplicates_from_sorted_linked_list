@@ -40,6 +40,7 @@ void display(struct Node *p)
 void remdup(struct Node *p)
 {
     struct Node *last;
+    struct Node *q;
     last=p;
     int x=p->data;
     p=p->next;
@@ -47,6 +48,7 @@ void remdup(struct Node *p)
     {
         if(x==p->data)
         {
+            q=p;
             p=p->next;
             continue;
         }
@@ -58,6 +60,8 @@ void remdup(struct Node *p)
             p=p->next;
         }
     }
+    if(q->data==x)
+        last->next=NULL;
 }
 int main()
 {
